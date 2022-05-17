@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\kategoriaController;
+use App\Http\Controllers\tesztController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tesztek', [tesztController::class, 'index']);
+Route::get('/tesztek/kategoria{id}', [tesztController::class, 'index']);
+Route::get('/kategoria', [kategoriaController::class, 'index']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
